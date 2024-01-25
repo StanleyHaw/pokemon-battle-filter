@@ -1,0 +1,41 @@
+const ThemeColor = {
+  defaultWhite: '#ffffff',
+  defaultGrey100: '#f2f2f2',
+  defaultGrey200: '#d9d9d9',
+  defaultGrey300: '#acacac',
+  defaultGrey400: '#7f7f7f',
+  defaultGrey500: '#50504f',
+  defaultGrey600: '#3c3c3c',
+  defaultGrey700: '#282828',
+  defaultGrey800: '#1f1f1f',
+  defaultRed: '#dc2626',
+  defaultGreen: '#6ddd39',
+  defaultYellow: '#facc15',
+  defaultBlue: '#2563eb',
+
+  optionColorRed: '#ff3c12',
+  optionColorOrange: '#ff9314',
+  optionColorGreen: '#13b440',
+  optionColorPurple: '#7e60fd',
+
+  typeFire: '#e62829',
+  typeFighting: '#ff8001',
+  typeElectric: '#fac000',
+  typeBug: '#91a219',
+  typeGrass: '#3fa129',
+  typeFlying: '#81b9ef',
+  typeSteel: '#60a1b8',
+  typeIce: '#3ed8ff',
+  typeWater: '#2980ef',
+  typeDragon: '#5060e1',
+  typePoison: '#9141cb',
+  typeGhost: '#6f4170',
+  typePsychic: '#ee4179',
+  typeFairy: '#ef70ef',
+  typeGround: '#915120',
+  typeDark: '#50423e',
+  typeRock: '#afa981',
+  typeNormal: '#9fa19f'
+};
+
+export default ThemeColor;
