@@ -23,6 +23,9 @@ dependencies:
   eslint-plugin-react:
     specifier: ^7.33.2
     version: 7.33.2(eslint@8.56.0)
+  polished:
+    specifier: ^4.2.2
+    version: 4.2.2
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -7702,6 +7705,13 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 3.0.0
+    dev: false
+
+  /polished@4.2.2:
+    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@babel/runtime': 7.23.8
     dev: false
 
   /postcss-attribute-case-insensitive@5.0.2(postcss@8.4.33):
