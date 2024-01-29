@@ -30,12 +30,12 @@ const speciesFilterData = [
 
 const pokemonFilterData = [
   {
-    title: 'Pokemon Filter',
+    title: 'Pokémon Filter',
     color: themeColor.defaultGrey500,
     options: [
       { content: 'Valid in SV' },
-      { content: 'Pokedex of Teal Mask' },
-      { content: 'Pokedex of Indigo Disk' },
+      { content: 'Pokédex of Teal Mask' },
+      { content: 'Pokédex of Indigo Disk' },
       { content: 'Exclude Restricted Legendary' },
       { content: 'Exclude Mythical' }
     ]

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import Filter from '../component/Filter';
 import FilterElement from '../component/FilterElement';
+import SearchBar from '../component/SearchBar';
+import ToggleButton from '../component/ToggleButton';
 import { speciesFilterData, pokemonFilterData } from './filter-display-data';
 
 const FilterDisplayContainer = styled.div`
@@ -10,11 +12,60 @@ const FilterDisplayContainer = styled.div`
   grid-column-gap: 20px;
   grid-row-gap: 16px;
   font-size: 12px;
+  margin: 0 20px;
   margin-bottom: 16px;
   grid-template-columns: 408px calc(100% - 408px - 20px - 82px - 20px) 82px;
 `;
 
-function FilterDisplay() {
+const MenuButton = styled.button`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: ${(props) => props.theme.defaultWhite};
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+
+  & i {
+    color: ${(props) => props.theme.defaultGrey700};
+    font-size: 32px;
+    transition: color 0.3s ease;
+  }
+
+  & .fa-angle-left {
+    font-size: 24px;
+  }
+
+  &:hover {
+    i {
+      color: ${(props) => props.theme.defaultBlue};
+    }
+  }
+
+  &:active {
+    background: ${(props) => props.theme.defaultGrey200};
+
+    & i {
+      color: ${(props) => props.theme.defaultBlue};
+    }
+  }
+`;
+
+const ResultStats = styled.div`
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+
+  p {
+    padding-left: 4px;
+    color: ${(props) => props.theme.defaultWhite};
+    font-size: 16px;
+  }
+`;
+
+function FilterDisplay({ resultAmount = 100 }) {
   return (
     <FilterDisplayContainer>
       <Filter>
@@ -27,6 +78,20 @@ function FilterDisplay() {
           <FilterElement key={index} options={data.options} title={data.title} color={data.color} />
         ))}
       </Filter>
+      <MenuButton>
+        <i className="fa-solid fa-angle-left"></i>
+        <i className="fa-solid fa-filter-circle-xmark"></i>
+      </MenuButton>
+      <ResultStats>
+        <p>
+          About {resultAmount} Pokémon {resultAmount <= 1 ? 'result' : 'results'}
+        </p>
+      </ResultStats>
+      <SearchBar placeholder={'Enter Pokémon Name'} />
+      <ToggleButton
+        button1={<i className="fa-solid fa-table-cells-large"></i>}
+        button2={<i className="fa-solid fa-table-list"></i>}
+      />
     </FilterDisplayContainer>
   );
 }

@@ -37,12 +37,12 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
   text-align: center;
-  color: global.$defaultWhite;
+  color: ${(props) => props.theme.defaultWhite};
   letter-spacing: 1px;
   }
 
   h3 {
-    color: global.$defaultWhite;
+    color: ${(props) => props.theme.defaultWhite};
     font-size: 20px;
     font-weight: 500;
   }
@@ -55,10 +55,6 @@ const GlobalStyle = createGlobalStyle`
   h5 {
     font-weight: 600;
     font-size: 12px;
-  }
-
-  section {
-    margin: 0 20px;
   }
 `;
 
