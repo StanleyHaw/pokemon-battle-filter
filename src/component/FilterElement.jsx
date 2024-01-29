@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { darken } from 'polished';
+import { MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 
 const CloseButton = styled.button`
   width: 20px;
@@ -101,6 +102,10 @@ const TitleBlock = styled.div`
   width: auto;
   background: ${(props) => `${props.color}`};
   color: ${(props) => props.theme.defaultWhite};
+
+  ${MEDIA_QUERY_MOBILE} {
+    display: none;
+  }
 `;
 
 const FilterWrapper = styled.div`

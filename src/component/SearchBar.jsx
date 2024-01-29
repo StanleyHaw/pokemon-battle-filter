@@ -1,9 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { lighten } from 'polished';
+import { MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 
 const SearchBarWrapper = styled.label`
   position: relative;
+
+  ${MEDIA_QUERY_MOBILE} {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
 `;
 
 const InputBar = styled.input`

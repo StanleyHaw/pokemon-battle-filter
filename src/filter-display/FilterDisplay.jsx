@@ -5,6 +5,7 @@ import FilterElement from '../component/FilterElement';
 import SearchBar from '../component/SearchBar';
 import ToggleButton from '../component/ToggleButton';
 import { speciesFilterData, pokemonFilterData } from './filter-display-data';
+import { MEDIA_QUERY_TABLET, MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 
 const FilterDisplayContainer = styled.div`
   display: grid;
@@ -15,6 +16,18 @@ const FilterDisplayContainer = styled.div`
   margin: 0 20px;
   margin-bottom: 16px;
   grid-template-columns: 408px calc(100% - 408px - 20px - 82px - 20px) 82px;
+
+  ${MEDIA_QUERY_TABLET} {
+    grid-template-columns: 360px calc(100% - 360px - 20px - 82px - 20px) 82px;
+  }
+
+  ${MEDIA_QUERY_MOBILE} {
+    grid-template-columns: calc(100% - 94px) 82px;
+    grid-template-rows: 46px;
+    row-gap: 8px;
+    column-gap: 12px;
+    margin-bottom: 8px;
+  }
 `;
 
 const MenuButton = styled.button`
@@ -50,6 +63,12 @@ const MenuButton = styled.button`
     & i {
       color: ${(props) => props.theme.defaultBlue};
     }
+  }
+
+  ${MEDIA_QUERY_MOBILE} {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: 100%;
   }
 `;
 
