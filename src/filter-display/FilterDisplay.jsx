@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import FilterElement from '../component/FilterElement';
-import FilterElementsContainer from '../component/Filter';
+import FilterElement from './FilterElement';
+import FilterElementsContainer from './FilterElementsContainer';
 import SearchBar from '../component/SearchBar';
 import ToggleButton from '../component/ToggleButton';
 import { MEDIA_QUERY_TABLET, MEDIA_QUERY_MOBILE } from '../constants/breakpoint';

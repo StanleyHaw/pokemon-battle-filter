@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 import { MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 
-const CloseButton = styled.button`
+const DeletedButton = styled.button`
   width: 20px;
   height: 20px;
   display: flex;
@@ -108,7 +108,7 @@ const TitleElement = styled.div`
   }
 `;
 
-const FilterElementContainer = styled.div`
+const ElementWrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -127,9 +127,9 @@ function FilterElement({ options, title, color, isFitWrapper }) {
         <OptionElement key={option.content} $borderColor={color}>
           <p>{option.content}</p>
           {!isDefaultOption && (
-            <CloseButton>
+            <DeletedButton>
               <i className="fa-solid fa-xmark"></i>
-            </CloseButton>
+            </DeletedButton>
           )}
         </OptionElement>
       );
@@ -137,7 +137,7 @@ function FilterElement({ options, title, color, isFitWrapper }) {
   };
 
   return (
-    <FilterElementContainer $isFitWrapper={isFitWrapper}>
+    <ElementWrapper $isFitWrapper={isFitWrapper}>
       <TitleElement color={color}>
         <h5>{title}</h5>
         <ClearButton>
@@ -145,7 +145,7 @@ function FilterElement({ options, title, color, isFitWrapper }) {
         </ClearButton>
       </TitleElement>
       <OptionsWrapper>{renderOptionElements()}</OptionsWrapper>
-    </FilterElementContainer>
+    </ElementWrapper>
   );
 }
 

@@ -26,7 +26,7 @@ const ScrollWrapper = styled.div`
   }
 `;
 
-const FilterGroup = styled.div`
+const ElementsGroup = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
@@ -39,7 +39,7 @@ function FilterElementsContainer({ children }) {
   return (
     <ElementsContainer>
       <ScrollWrapper>
-        <FilterGroup>{children}</FilterGroup>
+        <ElementsGroup>{children}</ElementsGroup>
       </ScrollWrapper>
     </ElementsContainer>
   );
