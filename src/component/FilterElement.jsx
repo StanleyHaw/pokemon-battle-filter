@@ -57,7 +57,7 @@ const ClearButton = styled.button`
   }
 `;
 
-const OptionBlock = styled.li`
+const OptionElement = styled.li`
   display: flex;
   gap: 4px;
   justify-content: center;
@@ -90,7 +90,7 @@ const OptionsWrapper = styled.ul`
   }
 `;
 
-const TitleBlock = styled.div`
+const TitleElement = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -108,40 +108,44 @@ const TitleBlock = styled.div`
   }
 `;
 
-const FilterWrapper = styled.div`
+const FilterElementContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: ${(props) => (props.$fitWrapper ? '100%' : 'auto')};
+  width: ${(props) => (props.$isFitWrapper ? '100%' : 'auto')};
 `;
 
-function FilterElement({ options, title, color, fitWrapper }) {
+function FilterElement({ options, title, color, isFitWrapper }) {
+  const DEFAULT_OPTIONS = ['All Types', 'All Abilities', 'Default'];
+
+  const renderOptionElements = () => {
+    return options.map((option) => {
+      const isDefaultOption = DEFAULT_OPTIONS.includes(option.content);
+
+      return (
+        <OptionElement key={option.content} $borderColor={color}>
+          <p>{option.content}</p>
+          {!isDefaultOption && (
+            <CloseButton>
+              <i className="fa-solid fa-xmark"></i>
+            </CloseButton>
+          )}
+        </OptionElement>
+      );
+    });
+  };
+
   return (
-    <FilterWrapper $fitWrapper={fitWrapper}>
-      <TitleBlock color={color}>
+    <FilterElementContainer $isFitWrapper={isFitWrapper}>
+      <TitleElement color={color}>
         <h5>{title}</h5>
         <ClearButton>
           <i className="fa-solid fa-eraser"></i>
         </ClearButton>
-      </TitleBlock>
-      <OptionsWrapper>
-        {options.map((option, index) => {
-          const isDefaultOption =
-            option.content === 'All Types' || option.content === 'All Abilities' || option.content === 'Default';
-          return (
-            <OptionBlock key={index} $borderColor={color}>
-              <p>{option.content}</p>
-              {!isDefaultOption && (
-                <CloseButton>
-                  <i className="fa-solid fa-xmark"></i>
-                </CloseButton>
-              )}
-            </OptionBlock>
-          );
-        })}
-      </OptionsWrapper>
-    </FilterWrapper>
+      </TitleElement>
+      <OptionsWrapper>{renderOptionElements()}</OptionsWrapper>
+    </FilterElementContainer>
   );
 }
 

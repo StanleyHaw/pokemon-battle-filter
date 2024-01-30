@@ -33,11 +33,12 @@ const Button = styled.button`
   }
 `;
 
-function ToggleButton({ button1, button2 }) {
+function ToggleButton({ buttons }) {
   return (
     <ButtonContainer>
-      <Button>{button1}</Button>
-      <Button>{button2}</Button>
+      {buttons.map(({ id, content }) => (
+        <Button key={id} dangerouslySetInnerHTML={{ __html: content }} />
+      ))}
     </ButtonContainer>
   );
 }

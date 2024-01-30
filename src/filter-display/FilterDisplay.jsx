@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import Filter from '../component/Filter';
 import FilterElement from '../component/FilterElement';
+import FilterElementsContainer from '../component/Filter';
 import SearchBar from '../component/SearchBar';
 import ToggleButton from '../component/ToggleButton';
-import { speciesFilterData, pokemonFilterData } from './filter-display-data';
 import { MEDIA_QUERY_TABLET, MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
+import themeColor from '../styles/theme-color';
 
 const FilterDisplayContainer = styled.div`
   display: grid;
@@ -84,19 +84,76 @@ const ResultStats = styled.div`
   }
 `;
 
+const pokemonFilterDummyData = [
+  {
+    id: 'pokemonFilter',
+    title: 'Pokémon Filter',
+    color: themeColor.defaultGrey500,
+    options: [
+      { content: 'Valid in SV' },
+      { content: 'Pokédex of Teal Mask' },
+      { content: 'Pokédex of Indigo Disk' },
+      { content: 'Exclude Restricted Legendary' },
+      { content: 'Exclude Mythical' }
+    ]
+  }
+];
+
+const speciesFilterDummyData = [
+  {
+    id: 'typesFilter',
+    title: 'Types Filter',
+    color: themeColor.optionColorRed,
+    options: [{ content: 'All Types' }, { content: 'All combinations for selected' }]
+  },
+  {
+    id: 'abilitiesFilter',
+    title: 'Abilities Filter',
+    color: themeColor.optionColorOrange,
+    options: [{ content: 'All Abilities' }]
+  },
+  {
+    id: 'baseStatsFilter',
+    title: 'Base Stats Filter',
+    color: themeColor.optionColorGreen,
+    options: [{ content: 'ATK below 60' }, { content: 'SPE below 80' }]
+  },
+  {
+    id: 'movesFilter',
+    title: 'Moves Filter',
+    color: themeColor.optionColorPurple,
+    options: [
+      { content: 'Sucker Punch' },
+      { content: 'Parting Shot' },
+      { content: 'Follow Me' },
+      { content: 'Only can learn the selected moves' }
+    ]
+  }
+];
+
+const contentViewDummyToggle = [
+  {
+    id: 'cardLayout',
+    content: `<i class="fa-solid fa-table-cells-large"></i>`
+  },
+  {
+    id: 'listLayout',
+    content: `<i class="fa-solid fa-table-list"></i>`
+  }
+];
+
 function FilterDisplay({ resultAmount = 100 }) {
+  const isFitWrapper = true;
+  const renderFilterElements = (filterData, isFitWrapper) => {
+    return filterData.map(({ id, options, title, color }) => (
+      <FilterElement key={id} options={options} title={title} color={color} isFitWrapper={isFitWrapper} />
+    ));
+  };
+
   return (
     <FilterDisplayContainer>
-      <Filter>
-        {pokemonFilterData.map((data, index) => (
-          <FilterElement key={index} options={data.options} title={data.title} color={data.color} fitWrapper={true} />
-        ))}
-      </Filter>
-      <Filter>
-        {speciesFilterData.map((data, index) => (
-          <FilterElement key={index} options={data.options} title={data.title} color={data.color} />
-        ))}
-      </Filter>
+      <FilterElementsContainer>{renderFilterElements(pokemonFilterDummyData, isFitWrapper)}</FilterElementsContainer>
+      <FilterElementsContainer>{renderFilterElements(speciesFilterDummyData, !isFitWrapper)}</FilterElementsContainer>
       <MenuButton>
         <i className="fa-solid fa-angle-left"></i>
         <i className="fa-solid fa-filter-circle-xmark"></i>
@@ -107,10 +164,7 @@ function FilterDisplay({ resultAmount = 100 }) {
         </p>
       </ResultStats>
       <SearchBar placeholder={'Enter Pokémon Name'} />
-      <ToggleButton
-        button1={<i className="fa-solid fa-table-cells-large"></i>}
-        button2={<i className="fa-solid fa-table-list"></i>}
-      />
+      <ToggleButton buttons={contentViewDummyToggle} />
     </FilterDisplayContainer>
   );
 }

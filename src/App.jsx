@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from 'styled-components';
-import GlobalStyle from './style/global-style';
-import themeColor from './style/theme-color';
+import GlobalStyle from './styles/global-style';
+import themeColor from './styles/theme-color';
 import FilterDisplay from './filter-display/FilterDisplay';
 
 const MainTitle = styled.div`

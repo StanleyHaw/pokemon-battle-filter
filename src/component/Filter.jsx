@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FilterContainer = styled.div`
+const ElementsContainer = styled.div`
   position: relative;
   width: 100%;
   background: ${(props) => props.theme.defaultGrey700};
@@ -35,14 +35,14 @@ const FilterGroup = styled.div`
   flex-direction: row;
 `;
 
-function Filter({ children }) {
+function FilterElementsContainer({ children }) {
   return (
-    <FilterContainer>
+    <ElementsContainer>
       <ScrollWrapper>
         <FilterGroup>{children}</FilterGroup>
       </ScrollWrapper>
-    </FilterContainer>
+    </ElementsContainer>
   );
 }
 
-export default Filter;
+export default FilterElementsContainer;

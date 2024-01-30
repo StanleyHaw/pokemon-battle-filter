@@ -53,10 +53,10 @@ const SearchButton = styled.button`
   }
 `;
 
-function SearchBar({ id, placeholder }) {
+function SearchBar({ placeholder }) {
   return (
     <SearchBarWrapper>
-      <InputBar type="text" id={id} placeholder={placeholder} />
+      <InputBar type="text" placeholder={placeholder} />
       <SearchButton>
         <i className="fa-solid fa-magnifying-glass"></i>
       </SearchButton>
