@@ -17,11 +17,11 @@ const FilterDisplayContainer = styled.div`
   margin-bottom: 16px;
   grid-template-columns: 408px calc(100% - 408px - 20px - 82px - 20px) 82px;
 
-  ${MEDIA_QUERY_TABLET} {
+  @media screen and (max-width: ${MEDIA_QUERY_TABLET}) {
     grid-template-columns: 360px calc(100% - 360px - 20px - 82px - 20px) 82px;
   }
 
-  ${MEDIA_QUERY_MOBILE} {
+  @media screen and (max-width: ${MEDIA_QUERY_MOBILE}) {
     grid-template-columns: calc(100% - 94px) 82px;
     grid-template-rows: 46px;
     row-gap: 8px;
@@ -65,7 +65,7 @@ const MenuButton = styled.button`
     }
   }
 
-  ${MEDIA_QUERY_MOBILE} {
+  @media screen and (max-width: ${MEDIA_QUERY_MOBILE}) {
     grid-column: 2;
     grid-row: 1 / span 2;
     height: 100%;

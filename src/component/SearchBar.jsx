@@ -6,7 +6,7 @@ import { MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 const SearchBarWrapper = styled.label`
   position: relative;
 
-  ${MEDIA_QUERY_MOBILE} {
+  @media screen and (max-width: ${MEDIA_QUERY_MOBILE}) {
     grid-column: 1 / span 2;
     grid-row: 3;
   }

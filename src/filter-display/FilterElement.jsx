@@ -103,7 +103,7 @@ const TitleElement = styled.div`
   background: ${(props) => `${props.color}`};
   color: ${(props) => props.theme.defaultWhite};
 
-  ${MEDIA_QUERY_MOBILE} {
+  @media screen and (max-width: ${MEDIA_QUERY_MOBILE}) {
     display: none;
   }
 `;
@@ -116,9 +116,9 @@ const ElementWrapper = styled.div`
   width: ${(props) => (props.$isFitWrapper ? '100%' : 'auto')};
 `;
 
-function FilterElement({ options, title, color, isFitWrapper }) {
-  const DEFAULT_OPTIONS = ['All Types', 'All Abilities', 'Default'];
+const DEFAULT_OPTIONS = ['All Types', 'All Abilities', 'Default'];
 
+function FilterElement({ options, title, color, isFitWrapper }) {
   const renderOptionElements = () => {
     return options.map((option) => {
       const isDefaultOption = DEFAULT_OPTIONS.includes(option.content);
