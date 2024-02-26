@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FilterElement from './FilterElement';
 import FilterElementsContainer from './FilterElementsContainer';
 import SearchBar from '../component/SearchBar';
-import OptionSelector from '../component/ToggleButton';
+import OptionSelector from '../component/OptionSelector';
 import { MEDIA_QUERY_TABLET, MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 import themeColor from '../styles/theme-color';
 
