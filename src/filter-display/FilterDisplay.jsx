@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import FilterElement from './FilterElement';
 import FilterElementsContainer from './FilterElementsContainer';
 import SearchBar from '../component/SearchBar';
-import ToggleButton from '../component/ToggleButton';
+import OptionSelector from '../component/ToggleButton';
 import { MEDIA_QUERY_TABLET, MEDIA_QUERY_MOBILE } from '../constants/breakpoint';
 import themeColor from '../styles/theme-color';
 
@@ -133,12 +133,14 @@ const speciesFilterDummyData = [
 
 const contentViewDummyToggle = [
   {
-    id: 'cardLayout',
-    content: `<i class="fa-solid fa-table-cells-large"></i>`
+    id: 'listLayout',
+    name: 'result-layout',
+    content: 'fa-solid fa-table-list'
   },
   {
-    id: 'listLayout',
-    content: `<i class="fa-solid fa-table-list"></i>`
+    id: 'cardLayout',
+    name: 'result-layout',
+    content: 'fa-solid fa-table-cells-large'
   }
 ];
 
@@ -164,7 +166,7 @@ function FilterDisplay({ resultAmount = 100 }) {
         </p>
       </ResultStats>
       <SearchBar placeholder={'Enter Pokémon Name'} />
-      <ToggleButton buttons={contentViewDummyToggle} />
+      <OptionSelector options={contentViewDummyToggle} />
     </FilterDisplayContainer>
   );
 }
