@@ -1,4 +1,4 @@
-const ThemeColor = {
+const themeColor = {
   defaultWhite: '#ffffff',
   defaultGrey100: '#f2f2f2',
   defaultGrey200: '#d9d9d9',
@@ -38,4 +38,4 @@ const ThemeColor = {
   typeNormal: '#9fa19f'
 };
 
-export default ThemeColor;
+export default themeColor;

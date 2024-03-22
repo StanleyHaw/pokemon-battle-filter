@@ -1,6 +1,7 @@
 import styled, { ThemeProvider } from 'styled-components';
-import GlobalStyle from './style/global-style';
-import ThemeColor from './style/theme-color';
+import GlobalStyle from './styles/global-style';
+import themeColor from './styles/theme-color';
+import FilterDisplay from './filter-display/FilterDisplay';
 
 const MainTitle = styled.div`
   margin: 24px auto;
@@ -14,12 +15,13 @@ const MainTitle = styled.div`
 
 function App() {
   return (
-    <ThemeProvider theme={ThemeColor}>
+    <ThemeProvider theme={themeColor}>
       <>
         <GlobalStyle />
         <MainTitle>
           <h1>寶可夢篩選搜尋器</h1>
         </MainTitle>
+        <FilterDisplay />
       </>
     </ThemeProvider>
   );

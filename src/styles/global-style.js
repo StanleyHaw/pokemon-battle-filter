@@ -34,6 +34,28 @@ const GlobalStyle = createGlobalStyle`
       outline: none;
     }
   }
+
+  h1 {
+  text-align: center;
+  color: ${(props) => props.theme.defaultWhite};
+  letter-spacing: 1px;
+  }
+
+  h3 {
+    color: ${(props) => props.theme.defaultWhite};
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  h5 {
+    font-weight: 600;
+    font-size: 12px;
+  }
 `;
 
 export default GlobalStyle;
